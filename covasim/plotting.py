@@ -96,7 +96,7 @@ def handle_show_return(do_show=None, returnfig=None, fig=None, figs=None):
     backend = pl.get_backend()
     if backend == 'agg': # Cannot show plots for a non-interactive backend
         do_show = False
-    if do_show: # Now check whether to show, and atually do it
+    if do_show: # Now check whether to show, and actually do it
         pl.show()
 
     # Show the figure, or close it
@@ -228,7 +228,7 @@ def plot_data(sim, ax, key, scatter_args, color=None):
         datastride = scatter_args.pop('datastride', 1) # Temporarily pop so other arguments pass correctly to ax.scatter()
         x = np.array(sim.data.index)[::datastride]
         y = np.array(sim.data[key])[::datastride]
-        ax.scatter(x, y, c=[color], label='Data', **scatter_args)
+        ax.scatter(x, y, c=[color], label='Data_real_cal', **scatter_args)
         scatter_args['datastride'] = datastride # Restore
     return
 
@@ -368,7 +368,6 @@ def set_line_options(input_args, reskey, resnum, default):
 
 
 #%% Core plotting functions
-
 def plot_sim(to_plot=None, sim=None, do_save=None, fig_path=None, fig_args=None, plot_args=None,
          scatter_args=None, axis_args=None, fill_args=None, legend_args=None, date_args=None,
          show_args=None, style_args=None, n_cols=None, grid=True, commaticks=True,
